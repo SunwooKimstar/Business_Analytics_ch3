@@ -21,7 +21,7 @@
 - **이상치 데이터** : root 노드에 가까운 depth를 가짐
 - **outlier score** : 특정 한 개체가 isolation 되는 leaf 노드 (terminal 노드)까지의 거리
 
-<img src="./images/ch3/pic1.png" width = "65%" height = "65%">
+<p align="center"><img src="./images/ch3/pic1.png" width = "65%" height = "65%">
 
 #### 🌳 Isolation Forest의 전체적인 과정
 ------
@@ -33,7 +33,7 @@
 #### Isolation Forest
 5. 1~4의 과정(iTree)을 여러번 반복
 
-<img src="./images/ch3/isolation.png" width = "80%" height = "80%">
+<p align="center"><img src="./images/ch3/isolation.png" width = "80%" height = "80%">
 
 #### 🌲 Isolation Forest의 특징
 - **sub-sampling** : sampling한 데이터로 모델을 구성함
@@ -71,7 +71,7 @@
 |0.296|0.670|0.840|0.180|
 
 * Credit Card Fraud Detection
-<img src="./images/ch3/conf.png">
+<p align="center"><img src="./images/ch3/conf.png" width = "50%" height = "50%">
 
 |F1-score|Recall|Precision|
 |:--:|:--:|:--:|
@@ -80,19 +80,20 @@
 ### 📊 Analysis
 ------------------------------
 * make_blobs
-<img src="./images/ch3/iso1.png">
+<p align="center"><img src="./images/ch3/iso1.png" width = "50%" height = "50%">
 
 위와 같이 정상(1)로 예측되는 경우 파란색으로, 이상치(-1)로 예측되는 경우는 빨간색으로 시각화합니다. cluster의 중심에 가까운 점들의 경우 정상으로 표시되고, cluster에서 벗어난 점들의 경우 이상치로 표시되는 것을 확인할 수 있습니다. Isolation Forest의 개념 자체와 연관시켜 생각해보면, cluster의 중심에 있는 점들의 경우에는 고립시키는데 많은 수의 분기(split)가 필요하기 때문에 정상으로 탐지하고, cluster의 외부에 있는 점들의 경우는 고립시키는데 비교적 적은 수의 분기(split)가 필요하기 때문에 이상치라고 할 수 있습니다. 
 
-<img src="./images/ch3/iso2.png">
+<p align="center"><img src="./images/ch3/iso2.png" width = "50%" height = "50%">
 
 이번에는 anomaly score 값들을 시각화 해보도록 하겠습니다. score값이 높으면 빨간색으로, score값이 낮으면 파란색으로 표기되게 하였습니다. 즉, score값이 높을수록 이상치에 가깝다고 볼 수 있습니다. 위의 결과에서 정상이라고 판단되는 경우 (파란색 부분) 이라고 할 수 있으며, 이상치로 판단되는 경우 (빨간색 부분) 이라고 할 수 있습니다. cluster의 중심에 가까울수록 anomaly score의 값이 낮고, 중심에서 멀리 떨어져 있을수록 일반적으로 anomaly score값이 크다는 점을 알 수 있습니다. 추가적으로 위의 일반적인 데이터 분포 그림과 비교하여 보았을 때, 약 0.5 정도의 값을 기준으로 하여 정상과 이상치가 나뉘고 있음을 확인할 수 있습니다.
 
 * hyper-parameter search
-<img src="./images/ch3/grid1.png">
+
+<p align="center"><img src="./images/ch3/grid1.png" width = "60%" height = "60%">
 다음과 같이 ensemble에서의 best estimator의 수에 해당되는 n_estimators값이 고정되어 있을때, 각각의 base estimator를 학습시키기 위해 x에서 추출하는 sample 수인 max_samples의 값 변화에 따른 결과를 보자면, 각각의 n_estimator에서 max_sample값이 100에서 500으로 증가하면, 모든 경우에서 mean_test_score가 향상되는 모습을 볼 수 있었습니다. 이는 더 많은 X의 수를 추출하면서 sampling을 진행하게 되는 경우, 학습에 도움을 준다고 해석할 수 있습니다. 위의 경우에는 max_sample값이 증가함에 따라 성능 향상이 있긴 했지만, 지나치게 많아지게 되는 경우, overfitting이 발생할수도 있다는 점을 유의해야 할 것입니다.
 
-<img src="./images/ch3/grid2.png">
+<p align="center"><img src="./images/ch3/grid2.png" width = "60%" height = "60%">
 다음과 같이 ensemble에서의 best estimator의 수에 해당되는 n_estimators값이 고정되어 있을때, 각각의 base estimator에서 추출하는 feature 수인 max_feature 값 변화에 따른 결과를 보자면, n_estimator가 150인 경우, max_feature값이 2, 4, 8로 증가함에 따라 성능 향상이 있었습니다. 반면, n_estimator가 50, 100인 경우에는 max_feature값이 4일 때, 가장 성능이 낮고, max_feature값이 8일 떄, 성능이 가장 높은 모습을 보였습니다. 이는 ensemble에서의 best estimator 수가 큰 경우, 각각의 base estimator에서 추출하는 feature 수가 크면 효과가 있지만, 그렇지 않은 경우는 효과가 별로 없다고 해석할 수 있습니다.
 
 ### 📂 References
