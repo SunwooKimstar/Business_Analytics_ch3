@@ -21,7 +21,7 @@
 - **이상치 데이터** : root 노드에 가까운 depth를 가짐
 - **outlier score** : 특정 한 개체가 isolation 되는 leaf 노드 (terminal 노드)까지의 거리
 
-<img src="./images/ch3/pic1.png" width = "50%" height = "50%">
+<img src="./images/ch3/pic1.png">
 
 #### 🌳 Isolation Forest의 전체적인 과정
 ------
