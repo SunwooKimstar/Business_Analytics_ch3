@@ -21,7 +21,7 @@
 - **이상치 데이터** : root 노드에 가까운 depth를 가짐
 - **outlier score** : 특정 한 개체가 isolation 되는 leaf 노드 (terminal 노드)까지의 거리
 
-<img src="./images/ch3/pic1.png">
+<img src="./images/ch3/pic1.png" width = "65%" height = "65%">
 
 #### 🌳 Isolation Forest의 전체적인 과정
 ------
@@ -33,7 +33,7 @@
 #### Isolation Forest
 5. 1~4의 과정(iTree)을 여러번 반복
 
-<img src="./images/ch3/isolation.png">
+<img src="./images/ch3/isolation.png" width = "80%" height = "80%">
 
 #### 🌲 Isolation Forest의 특징
 - **sub-sampling** : sampling한 데이터로 모델을 구성함
@@ -65,12 +65,14 @@
 ### :bar_chart: Result
 -----------------------------
 * Synthetic Financial Datasets For Fraud Detection
+* 
 |F1-score|Auroc|Recall|Precision|
 |:--:|:--:|:--:|:--:|
 |0.296|0.670|0.840|0.180|
 
 * Credit Card Fraud Detection
 <img src="./images/ch3/conf.png">
+
 |F1-score|Recall|Precision|
 |:--:|:--:|:--:|
 |0.518|0.030|0.831|
