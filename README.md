@@ -65,17 +65,25 @@
 ### :bar_chart: Result
 -----------------------------
 * Synthetic Financial Datasets For Fraud Detection
-* 
+  
+<div align="center">
+
 |F1-score|Auroc|Recall|Precision|
 |:--:|:--:|:--:|:--:|
 |0.296|0.670|0.840|0.180|
-
+  
+</div>
+  
 * Credit Card Fraud Detection
 <p align="center"><img src="./images/ch3/conf.png" width = "50%" height = "50%">
+
+<div align="center">
 
 |F1-score|Recall|Precision|
 |:--:|:--:|:--:|
 |0.518|0.030|0.831|
+  
+</div>
 
 ### 📊 Analysis
 ------------------------------
@@ -91,9 +99,11 @@
 * hyper-parameter search
 
 <p align="center"><img src="./images/ch3/grid1.png" width = "60%" height = "60%">
+  
 다음과 같이 ensemble에서의 best estimator의 수에 해당되는 n_estimators값이 고정되어 있을때, 각각의 base estimator를 학습시키기 위해 x에서 추출하는 sample 수인 max_samples의 값 변화에 따른 결과를 보자면, 각각의 n_estimator에서 max_sample값이 100에서 500으로 증가하면, 모든 경우에서 mean_test_score가 향상되는 모습을 볼 수 있었습니다. 이는 더 많은 X의 수를 추출하면서 sampling을 진행하게 되는 경우, 학습에 도움을 준다고 해석할 수 있습니다. 위의 경우에는 max_sample값이 증가함에 따라 성능 향상이 있긴 했지만, 지나치게 많아지게 되는 경우, overfitting이 발생할수도 있다는 점을 유의해야 할 것입니다.
 
-<p align="center"><img src="./images/ch3/grid2.png" width = "60%" height = "60%">
+<p align="center"> <img src="./images/ch3/grid2.png" width = "70%" height = "70%">
+  
 다음과 같이 ensemble에서의 best estimator의 수에 해당되는 n_estimators값이 고정되어 있을때, 각각의 base estimator에서 추출하는 feature 수인 max_feature 값 변화에 따른 결과를 보자면, n_estimator가 150인 경우, max_feature값이 2, 4, 8로 증가함에 따라 성능 향상이 있었습니다. 반면, n_estimator가 50, 100인 경우에는 max_feature값이 4일 때, 가장 성능이 낮고, max_feature값이 8일 떄, 성능이 가장 높은 모습을 보였습니다. 이는 ensemble에서의 best estimator 수가 큰 경우, 각각의 base estimator에서 추출하는 feature 수가 크면 효과가 있지만, 그렇지 않은 경우는 효과가 별로 없다고 해석할 수 있습니다.
 
 ### 📂 References
